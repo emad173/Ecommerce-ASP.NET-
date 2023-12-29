@@ -1,0 +1,109 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "";
+}
+<head>
+    <style>
+        body {
+            background: #ef32d9; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #89fffd, #ef32d9); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        #btn {
+            display: inline-block;
+            outline: none;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 3px;
+            padding: 0 15px;
+            border-radius: 4px;
+            color: #6200ee;
+            background: transparent;
+            line-height: 1.15;
+            font-size: 14px;
+            height: 36px;
+            word-spacing: 0px;
+            letter-spacing: .0892857143em;
+            text-decoration: none;
+            text-transform: uppercase;
+            min-width: 64px;
+            border: 1px solid #6200ee;
+            text-align: center;
+            transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+            : hover
+
+        {
+            background: #f4f4f4;
+        }
+
+        }
+
+        #hf {
+            font-size: 30px;
+            font-weight: 700;
+            color: aliceblue;
+        }
+        #in {
+            width:400px;
+            border-radius:30px;
+        }
+    </style>
+</head>
+<h2 id="hf"style="position:absolute; left:1700px; color:aliceblue;">Log in</h2>
+<center>
+    <div class="row" style="position:relative; top:100px">
+        <div class="col-md-4">
+            <section>
+                <form id="account" method="post">
+                    
+                    <h6 id="hf">Use a local account to log in.</h6>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <input id="in" asp-for="Input.Email" class="form-control" placeholder="Email" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <input id="in" asp-for="Input.Password" class="form-control" placeholder="Password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe">
+                                <input asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="btn" type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+        </div>
+
+</center> 
+ <div class="col-md-6 col-md-offset-2">
+    <section>
+        <img src="https://cz.forbesmedia.cz/uploads/2021/03/ecommerce.jpg" style="width:750px; position:absolute; left:600px; top:-300px;border-radius:15px" alt="Alternate Text" />
+
+    </section>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
